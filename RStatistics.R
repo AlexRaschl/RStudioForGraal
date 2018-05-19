@@ -2,6 +2,8 @@ library(tidyverse)
 
 
 #General Filepath settings
+rm(list=ls())
+
 mainPath <- "/home/urzidil/Programming/CSV/"
 folderPath <- "DacapoStatistics/"
 namePrefix <- "HotSpotGraalRuntime"
@@ -23,10 +25,24 @@ opDistrib <- data.frame(read.csv(opDistrPath,header = TRUE, sep = ';'))
 #Do the data transformations
 merged <- merge(allocSites, opDistrib)
 
-allocSorted <- merged[order(allocSorted$Allocation.Sites),2:4]
-allocSorted$Occurrences<- as.numeric(as.character(allocSorted$Occurrences))
-is.numeric(allocSorted$Occurrences)
-is.factor(allocSorted$Occurrences)
+#Sort by allocation Site
+allocSorted <- merged[order(allocSites$Allocation.Sites),2:4]
+#allocSorted$Occurrences<- as.numeric(as.character(allocSorted$Occurrences))
 
-aggregated <- aggregate(allocSorted$Occurrences ~ allocSorted$Allocation.Sites + allocSorted$Operation, allocSorted, sum)
-aggregated <- aggregated[order(aggregated$`allocSorted$Allocation.Sites`),]
+#Aggregate Operation Occurrences based on Sites
+#aggregated <- aggregate(allocSorted$Occurrences ~ allocSorted$Allocation.Sites + allocSorted$Operation, allocSorted, sum)
+aggregated <- aggregate(merged$Occurrences ~ merged$Allocation.Sites + merged$Operation, merged, sum)
+
+#aggregated <- aggregated[order(aggregated$`allocSorted$Allocation.Sites`),]
+
+#Fetch Tracker nums for each site
+#trackNums <-table(unlist(allocSites$Allocation.Sites))
+#table(unlist(opDistrib$Operation))
+
+trackerOccurrences <- data.frame(count(allocSites, allocSites$Allocation.Sites))
+names(trackerOccurrences)[1] <- "merged$Allocation.Sites"
+names(trackerOccurrences)[2]<- "Instances"
+
+fullStats <- merge(aggregated, trackerOccurrences)
+
+
