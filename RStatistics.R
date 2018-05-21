@@ -5,24 +5,28 @@ library(tidyverse)
 rm(list=ls())
 
 mainPath <- "/home/urzidil/Programming/CSV/"
-folderPath <- "DacapoStatistics/"
+folderPath <- "DacapoFopNew/"
 namePrefix <- "HotSpotGraalRuntime"
 
 globalSuffix <- "_GLOBAL.csv"
 allocSiteSuffix <-"_ALLOC_SITES.csv"
 opDistrSuffix <- "_OP_DISTR.csv"
 typeUsageSuffix <- "_MAIN_TYPES.csv"
+sizesSuffix <- "_SIZE_CAP.csv"
 
 globalPath <- paste(mainPath, folderPath, namePrefix, globalSuffix, sep="")
 allocPath <- paste(mainPath, folderPath, namePrefix, allocSiteSuffix, sep="")
 opDistrPath <- paste(mainPath, folderPath, namePrefix, opDistrSuffix, sep="")
 typeUsagePath <- paste(mainPath, folderPath, namePrefix, typeUsageSuffix, sep="")
+sizesNCapsPath <- paste(mainPath,folderPath, namePrefix, sizesSuffix, sep="")
 
 #Fetch the dataFrames
 globalInfo <- data.frame(read.csv(globalPath,header = TRUE, sep = ';'))
 allocSites <- data.frame(read.csv(allocPath,header = TRUE, sep = ';'))
 opDistrib <- data.frame(read.csv(opDistrPath,header = TRUE, sep = ';'))
 typeUsage<- data.frame(read.csv(typeUsagePath, header = TRUE, sep = ';', stringsAsFactors = FALSE))
+sizesNCaps <- data.frame(read.csv(sizesNCapsPath, header = TRUE, sep=';'))
+
 
 
 #Do the data transformations
@@ -52,15 +56,28 @@ allocSitesFlattedTypes <- aggregate(allocSitesAndTypes$Main.Type ~ allocSitesAnd
 
 #is.factor(allocSitesFlattedTypes$`allocSitesAndTypes$Main.Type`[[1]])
 #as.numeric(allocSitesFlattedTypes$`allocSitesAndTypes$Main.Type`[[2,1]])
-names(allocSitesFlattedTypes)[1] <- "allocSitesAndDistrib$Allocation.Sites"
+names(allocSitesFlattedTypes)[1] <- "AllocationSites"
+
+#Sizes and Capacities 
+sizesAndSites <- merge(allocSites, sizesNCaps, by= "Tracker")
+sizesAndSitesSum <- aggregate(sizesAndSites$Size ~sizesAndSites$Allocation.Sites, FUN = sum)
+capsAndSitesSum <- aggregate(sizesAndSites$CAPACITY ~sizesAndSites$Allocation.Sites, FUN = sum)
+names(sizesAndSitesSum)[1]<-"sizesAndSites$Allocation.Sites"
+sizesAndSites <- merge(sizesAndSitesSum, capsAndSitesSum, by= "sizesAndSites$Allocation.Sites")
+names(sizesAndSites)[1]<-"AllocationSites"
+names(sizesAndSites)[2]<-"Total Size"
+names(sizesAndSites)[3]<-"Total Capacity"
 
 fullStats <- merge(opSumForSites, trackerOccurrences)
-fullStats <- merge(fullStats, allocSitesFlattedTypes)
 names(fullStats)[1] <-"AllocationSites"
 names(fullStats)[2] <-"Operation"
 names(fullStats)[3] <-"Occurrences"
 names(fullStats)[4] <-"Instances"
-names(fullStats)[5] <-"ContainedTypes"
+
+fullStats <-merge(fullStats, sizesAndSites, by= "AllocationSites")
+fullStats <- mutate(fullStats, Global_LF = fullStats$`Total Size` / fullStats$`Total Capacity`)
+fullStats <- merge(fullStats, allocSitesFlattedTypes, by= "AllocationSites")
+names(fullStats)[8] <-"ContainedTypes"
 
 
 
