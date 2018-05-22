@@ -49,13 +49,9 @@ names(trackerOccurrences)[2]<- "Instances"
 allocSitesAndTypes <- merge(allocSites, typeUsage, by= "Tracker")[, 2:3]
 is.factor(allocSitesAndTypes$Allocation.Sites)
 
-#lev = levels(allocSitesAndTypes$Main.Type)
-
 #allocSitesAndTypes$Allocation.Sites[,1] <- as.character(as.numeric(allocSitesAndTypes$Allocation.Sites[,1]))
 allocSitesFlattedTypes <- aggregate(allocSitesAndTypes$Main.Type ~ allocSitesAndTypes$Allocation.Sites, FUN = unique)
 
-#is.factor(allocSitesFlattedTypes$`allocSitesAndTypes$Main.Type`[[1]])
-#as.numeric(allocSitesFlattedTypes$`allocSitesAndTypes$Main.Type`[[2,1]])
 names(allocSitesFlattedTypes)[1] <- "AllocationSites"
 
 #Sizes and Capacities 
@@ -80,4 +76,13 @@ fullStats <- merge(fullStats, allocSitesFlattedTypes, by= "AllocationSites")
 names(fullStats)[8] <-"ContainedTypes"
 
 
+write.csv2(fullStats[1:7], file=paste(mainPath, "test.csv", sep = ""))
 
+
+
+#fullStats<- mutate(fullStats, ContainedTypes = paste(unlist(fullStats$ContainedTypes), collapse = ','))
+#fullStats<- mutate_each(fullStats, unlist(fullStats$ContainedTypes[]))
+
+#l <- fullStats$ContainedTypes[[10]]
+#l[2]
+#paste(unlist(fullStats$ContainedTypes[[10]]), collapse=',')
