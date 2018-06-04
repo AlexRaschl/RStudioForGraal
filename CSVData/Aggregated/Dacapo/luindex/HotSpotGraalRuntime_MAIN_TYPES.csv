@@ -1,0 +1,120 @@
+Tracker;Main Type
+1;class jdk.vm.ci.code.Register
+2;class org.graalvm.compiler.hotspot.meta.HotSpotGraphBuilderPlugins$1
+3;class org.graalvm.compiler.java.GraphBuilderPhase
+4;null
+5;class org.graalvm.compiler.core.common.FieldsScanner$FieldInfo
+6;class org.graalvm.compiler.graph.NodeClass$InputInfo
+7;class org.graalvm.compiler.graph.NodeClass$EdgeInfo
+8;class org.graalvm.collections.list.statistics.NoObject
+9;class org.graalvm.collections.list.statistics.NoObject
+10;class jdk.vm.ci.hotspot.HotSpotResolvedJavaMethodImpl
+11;class org.graalvm.compiler.debug.TimerKeyImpl
+12;null
+13;null
+14;class org.graalvm.compiler.hotspot.HotSpotDataBuilder$1
+15;class jdk.vm.ci.code.site.Call
+16;class org.graalvm.compiler.code.SourceMapping
+17;class jdk.vm.ci.code.site.DataPatch
+18;null
+19;class jdk.vm.ci.code.site.Mark
+20;class org.graalvm.compiler.lir.constopt.ConstantLoadOptimization
+21;class org.graalvm.compiler.java.BciBlockMapping$BciBlock
+22;class org.graalvm.compiler.java.BciBlockMapping$BciBlock
+23;class org.graalvm.compiler.nodes.cfg.HIRLoop
+24;class org.graalvm.compiler.nodes.StartNode
+25;class org.graalvm.compiler.nodes.java.LoadFieldNode
+26;class org.graalvm.compiler.virtual.phases.ea.GraphEffectList
+27;class org.graalvm.compiler.nodes.calc.IntegerLessThanNode
+28;class org.graalvm.compiler.nodes.ParameterNode
+29;class org.graalvm.compiler.nodes.GuardNode
+30;class org.graalvm.compiler.loop.LoopEx
+31;class org.graalvm.compiler.nodes.cfg.Block
+32;class org.graalvm.compiler.nodes.ValuePhiNode
+33;class org.graalvm.compiler.nodes.EndNode
+34;class org.graalvm.compiler.nodes.cfg.Block
+35;class org.graalvm.compiler.nodes.cfg.Block
+36;null
+37;class org.graalvm.compiler.lir.framemap.SimpleVirtualStackSlot
+38;class jdk.vm.ci.code.CallingConvention
+39;class org.graalvm.compiler.hotspot.amd64.AMD64HotSpotReturnOp
+40;class org.graalvm.compiler.core.common.FieldsScanner$FieldInfo
+41;class org.graalvm.compiler.lir.LIRIntrospection$ValueFieldInfo
+42;class org.graalvm.compiler.core.match.MatchStatement
+43;class org.graalvm.compiler.lir.StandardOp$LabelOp
+44;class org.graalvm.compiler.lir.ConstantValue
+45;class org.graalvm.compiler.nodes.memory.ReadNode
+46;class org.graalvm.compiler.lir.Variable
+47;class org.graalvm.collections.list.statistics.NoObject
+48;class org.graalvm.collections.list.statistics.NoObject
+49;class jdk.vm.ci.meta.PrimitiveConstant
+50;class org.graalvm.compiler.lir.alloc.lsra.Interval
+51;class org.graalvm.compiler.lir.amd64.AMD64Move$MoveFromConstOp
+52;class jdk.vm.ci.code.Register
+53;class jdk.vm.ci.code.RegisterValue
+54;class org.graalvm.collections.list.SpecifiedArrayList$SubList
+55;class org.graalvm.compiler.code.CompilationResult$CodeComment
+56;class java.lang.Integer
+57;class org.graalvm.compiler.replacements.classfile.ClassfileBytecode
+58;class org.graalvm.compiler.java.BytecodeParser$ReturnToCallerData
+59;class org.graalvm.compiler.nodes.extended.JavaWriteNode
+60;null
+61;null
+62;class org.graalvm.compiler.java.BciBlockMapping$BciBlock
+63;class java.lang.Double
+64;class org.graalvm.compiler.nodes.StartNode
+65;class org.graalvm.compiler.nodes.calc.ObjectEqualsNode
+66;class org.graalvm.compiler.nodes.ReturnNode
+67;null
+68;class org.graalvm.compiler.nodes.ParameterNode
+69;class org.graalvm.compiler.nodes.cfg.Block
+70;class org.graalvm.compiler.nodes.cfg.HIRLoop
+71;class org.graalvm.compiler.nodes.cfg.Block
+72;null
+73;class org.graalvm.compiler.virtual.phases.ea.PEReadEliminationBlockState
+74;class org.graalvm.compiler.virtual.phases.ea.PEReadEliminationBlockState
+75;class org.graalvm.compiler.nodes.memory.FloatingReadNode
+76;class org.graalvm.compiler.nodes.EndNode
+77;class org.graalvm.compiler.nodes.EndNode
+78;class org.graalvm.compiler.nodes.memory.WriteNode
+79;class org.graalvm.compiler.nodes.extended.ForeignCallNode
+80;class org.graalvm.compiler.nodes.PiArrayNode$Placeholder
+81;class org.graalvm.word.LocationIdentity$AnyLocationIdentity
+82;class org.graalvm.compiler.nodes.memory.MemoryMapNode
+83;class org.graalvm.compiler.nodes.ParameterNode
+84;class org.graalvm.compiler.nodes.NamedLocationIdentity
+85;class org.graalvm.compiler.lir.constopt.UseEntry
+86;class org.graalvm.compiler.lir.constopt.UseEntry
+87;class org.graalvm.compiler.lir.constopt.UseEntry
+88;null
+89;class org.graalvm.compiler.lir.alloc.lsra.Interval
+90;class org.graalvm.compiler.lir.alloc.lsra.Interval
+91;class org.graalvm.compiler.lir.framemap.SimpleVirtualStackSlot
+92;class org.graalvm.compiler.nodes.cfg.Block
+93;class org.graalvm.compiler.nodes.LoopBeginNode
+94;class org.graalvm.compiler.replacements.GraphKit$1
+95;class org.graalvm.compiler.java.BciBlockMapping$BciBlock
+96;class org.graalvm.compiler.nodes.FrameState
+97;class org.graalvm.compiler.java.BciBlockMapping$BciBlock
+98;class jdk.vm.ci.hotspot.HotSpotResolvedJavaMethodImpl
+99;class java.lang.Double
+100;class jdk.vm.ci.meta.JavaTypeProfile$ProfiledType
+101;class java.lang.Integer
+102;class org.graalvm.compiler.nodes.PiNode
+103;class org.graalvm.compiler.nodes.IfNode
+104;class org.graalvm.compiler.nodes.memory.FloatingReadNode
+105;class jdk.vm.ci.code.StackSlot
+106;class jdk.vm.ci.code.StackSlot
+107;class jdk.vm.ci.meta.JavaTypeProfile$ProfiledType
+108;class org.graalvm.compiler.nodes.java.TypeSwitchNode
+109;class org.graalvm.compiler.nodes.virtual.AllocatedObjectNode
+110;class org.graalvm.collections.list.statistics.NoObject
+111;class java.util.Collections$EmptyList
+112;null
+113;class java.lang.Boolean
+114;class java.lang.Integer
+115;null
+116;class org.graalvm.compiler.nodes.java.NewInstanceNode
+117;null
+118;null
+119;class org.graalvm.compiler.debug.TimerKeyImpl

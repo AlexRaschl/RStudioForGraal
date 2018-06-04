@@ -5,7 +5,9 @@ library(gtools)
 #General Filepath settings
 rm(list=ls())
 
-mainPath <- "/home/urzidil/Programming/CSV/"
+#mainPath <- "/home/urzidil/Programming/CSV/"
+mainPath <- "./CSVData/"
+
 subPath <- "Aggregated/Dacapo/"
 benchPath = paste(mainPath, subPath, sep = "")
 folderPath <- "lusearch/"

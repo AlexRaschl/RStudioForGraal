@@ -1,0 +1,116 @@
+Tracker;Operaton;Occurrences
+0;CLEAR; 203851
+0;GROW; 1264364
+0;ADD_ALL; 71182
+0;CONTAINS; 35048
+0;SORT; 8167
+0;REMOVE_ALL; 19519
+0;CSTR_COLL; 10362
+0;ADD_OBJ; 10247115
+0;ITERATOR; 3253878
+0;ENSURE_CAP; 10323664
+0;INDEX_OF; 74401
+0;EMPTY; 1335771
+0;GET_INDEXED; 15695860
+0;SET_INDEXED; 2439161
+0;REMOVE_OBJ; 6
+0;REMOVE_INDEXED; 343827
+0;CREATE_LIST_ITR; 120018
+0;SUBLIST; 104970
+0;CSTR_CAP; 1415569
+0;SIZE; 13639029
+0;ADD_INDEXED; 5367
+0;CSTR_STD; 1038427
+0;TO_ARRAY; 55996
+Tracker;Type;Occurrences
+0;jdk.vm.ci.code.site.Mark; 1
+0;jdk.vm.ci.code.Register; 2
+0;org.graalvm.compiler.lir.framemap.SimpleVirtualStackSlot; 2
+0;org.graalvm.compiler.nodes.java.NewInstanceNode; 1
+0;org.graalvm.compiler.virtual.phases.ea.PEReadEliminationBlockState; 3
+0;org.graalvm.compiler.nodes.cfg.HIRLoop; 2
+0;org.graalvm.compiler.lir.constopt.ConstantLoadOptimization; 1
+0;org.graalvm.compiler.replacements.GraphKit$1; 1
+0;org.graalvm.compiler.nodes.java.TypeSwitchNode; 1
+0;org.graalvm.compiler.nodes.StartNode; 1
+0;org.graalvm.compiler.lir.amd64.AMD64Move$MoveFromConstOp; 1
+0;org.graalvm.compiler.nodes.LoopBeginNode; 2
+0;org.graalvm.word.LocationIdentity$AnyLocationIdentity; 1
+0;org.graalvm.compiler.nodes.java.LoadFieldNode; 2
+0;jdk.vm.ci.code.site.Call; 1
+0;org.graalvm.compiler.code.CompilationResult$CodeComment; 1
+0;org.graalvm.compiler.nodes.PiArrayNode$Placeholder; 1
+0;java.util.Collections$EmptyList; 1
+0;org.graalvm.compiler.nodes.ParameterNode; 3
+0;org.graalvm.compiler.graph.NodeClass$InputInfo; 1
+0;org.graalvm.compiler.nodes.cfg.Block; 6
+0;org.graalvm.compiler.nodes.ReturnNode; 1
+0;org.graalvm.collections.list.statistics.NoObject; 6
+0;org.graalvm.compiler.nodes.calc.IntegerLessThanNode; 1
+0;org.graalvm.compiler.lir.StandardOp$LabelOp; 1
+0;org.graalvm.compiler.nodes.FieldLocationIdentity; 1
+0;jdk.vm.ci.hotspot.HotSpotResolvedJavaMethodImpl; 3
+0;org.graalvm.compiler.nodes.EndNode; 3
+0;jdk.vm.ci.meta.PrimitiveConstant; 1
+0;org.graalvm.compiler.loop.LoopEx; 1
+0;org.graalvm.compiler.nodes.java.MonitorIdNode; 1
+0;org.graalvm.collections.list.SpecifiedArrayList$SubList; 1
+0;org.graalvm.compiler.lir.alloc.lsra.Interval; 3
+0;org.graalvm.compiler.hotspot.amd64.AMD64HotSpotReturnOp; 1
+0;org.graalvm.compiler.nodes.memory.MemoryMapNode; 1
+0;org.graalvm.compiler.nodes.BeginNode; 2
+0;org.graalvm.compiler.nodes.memory.ReadNode; 1
+0;org.graalvm.compiler.java.BciBlockMapping$BciBlock; 2
+0;org.graalvm.compiler.core.match.MatchStatement; 1
+0;org.graalvm.compiler.core.common.FieldsScanner$FieldInfo; 2
+0;org.graalvm.compiler.lir.Variable; 1
+0;org.graalvm.compiler.replacements.classfile.ClassfileBytecode; 1
+0;org.graalvm.compiler.nodes.java.MonitorEnterNode; 1
+0;org.graalvm.compiler.nodes.memory.WriteNode; 1
+0;org.graalvm.compiler.lir.constopt.UseEntry; 3
+0;org.graalvm.compiler.nodes.extended.JavaWriteNode; 1
+0;jdk.vm.ci.code.site.DataPatch; 1
+0;org.graalvm.compiler.hotspot.meta.HotSpotGraphBuilderPlugins$1; 1
+0;jdk.vm.ci.code.StackSlot; 2
+0;org.graalvm.compiler.nodes.IfNode; 1
+0;org.graalvm.compiler.nodes.FrameState; 2
+0;jdk.vm.ci.code.CallingConvention; 1
+0;org.graalvm.compiler.nodes.GuardNode; 1
+0;org.graalvm.compiler.nodes.extended.ForeignCallNode; 1
+0;org.graalvm.compiler.java.BytecodeParser$ReturnToCallerData; 1
+0;org.graalvm.compiler.nodes.memory.FloatingReadNode; 2
+0;org.graalvm.compiler.graph.NodeClass$EdgeInfo; 1
+0;org.graalvm.compiler.nodes.extended.IntegerSwitchNode$KeyData; 2
+0;org.graalvm.compiler.virtual.phases.ea.GraphEffectList; 1
+0;org.graalvm.compiler.nodes.ValuePhiNode; 1
+0;org.graalvm.compiler.hotspot.HotSpotDataBuilder$1; 1
+0;org.graalvm.compiler.code.SourceMapping; 1
+0;org.graalvm.compiler.java.GraphBuilderPhase; 1
+0;java.lang.Integer; 4
+0;org.graalvm.compiler.nodes.PiNode; 1
+0;java.lang.Boolean; 1
+0;org.graalvm.compiler.lir.asm.CompilationResultBuilder$ExceptionInfo; 1
+0;org.graalvm.compiler.nodes.extended.BoxNode; 1
+0;org.graalvm.compiler.lir.ConstantValue; 1
+0;org.graalvm.compiler.lir.LIRIntrospection$ValueFieldInfo; 1
+0;jdk.vm.ci.code.site.ExceptionHandler; 1
+0;jdk.vm.ci.meta.JavaTypeProfile$ProfiledType; 2
+0;org.graalvm.compiler.nodes.virtual.AllocatedObjectNode; 1
+0;java.lang.Double; 2
+0;org.graalvm.compiler.debug.TimerKeyImpl; 2
+0;jdk.vm.ci.code.RegisterValue; 1
+Tracker;Load Factor;Occurrences
+[0%, 0%]; 4
+[0.0%, 10.0%[; 3
+[10.0%, 20.0%[; 1
+[20.0%, 30.0%[; 1
+[30.0%, 40.0%[; 3
+[40.0%, 50.0%[; 12
+[50.0%, 60.0%[; 39
+[60.0%, 70.0%[; 11
+[70.0%, 80.0%[; 12
+[80.0%, 90.0%[; 10
+[90.0%, 100.0%[; 2
+[100%, 100%]; 11
+[ZERO, SIZE]; 18
+
