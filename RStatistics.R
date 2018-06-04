@@ -133,7 +133,7 @@ mergeAllSuites <-function(){
 
 result <- mergeAllSuites()
 
-fullStats <- createFullStats()
+#fullStats <- createFullStats()
 
 
 
