@@ -1,6 +1,26 @@
-library(tidyverse)
-library(gtools)
-
+ensurePackage <- function(name){
+  found <- require(name,character.only = TRUE)
+  if(!found){
+    install.packages(name)
+  }
+}
+prepareEnv  <- function(){
+  ensurePackage("ggplot2")
+  ensurePackage("tidyr")
+  ensurePackage("plyr")
+  ensurePackage("dplyr")
+  ensurePackage("reshape2")
+  ensurePackage("grid")
+  ensurePackage("gridExtra")
+  ensurePackage("stringr")
+  ensurePackage("jsonlite")
+  ensurePackage("tidyverse")
+  ensurePackage("magrittr")
+  ensurePackage("psych")
+  ensurePackage("gtools")
+  ensurePackage("plotly")
+}
+prepareEnv()
 
 #General Filepath settings
 rm(list=ls())
@@ -131,11 +151,44 @@ mergeAllSuites <-function(){
  return(result)
 }
 
+
 result <- mergeAllSuites()
 
-#fullStats <- createFullStats()
+result %<>% dplyr::rename(AllocSite=Allocation.Sites)
+
+resultWide <-reshape(result,idvar = c("AllocSite","Size","CAPACITY","Global_LF"),timevar = "Operation", direction="wide")
+resultWide[is.na(resultWide)] <- 0
 
 
+
+# find important features https://machinelearningmastery.com/feature-selection-with-the-caret-r-package/
+library(caret)
+library(mlbench)
+
+
+
+# e.g. compute clusters
+kmeans(resultWide[2:27],2,nstart=20)
+
+
+
+
+# e.g. interactive plot of add
+p<-ggplot(data=resultWide, aes(x=AllocSite, y=Occurrences.ADD_OBJ)) +
+  geom_line()+
+  geom_point()
+ggplotly(p)
+
+
+
+
+# plot all metric interactive
+dataMelted <- melt(resultWide,id="AllocSite")
+dataMelted <- filter(value>0)
+p<-ggplot(data=dataMelted, aes(x=AllocSite, y=value,color=variable)) +
+  geom_line()+
+  geom_point()
+ggplotly(p)
 
 
 
