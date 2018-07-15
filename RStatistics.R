@@ -147,6 +147,7 @@ mergeAllSuites <-function(){
     result = createMergeOf(result, createMergableStat(benchPath, suites[i]))
   }
   result <- mutate(result, Global_LF = result$Size / result$CAPACITY)
+  result <- mutate(result, OpRate= result$Size / result$Occurrences)
   
  return(result)
 }
@@ -163,7 +164,7 @@ resultWide[is.na(resultWide)] <- 0
 
 # find important features https://machinelearningmastery.com/feature-selection-with-the-caret-r-package/
 library(caret)
-library(mlbench)
+#library(mlbench)
 
 
 
@@ -184,11 +185,12 @@ ggplotly(p)
 
 # plot all metric interactive
 dataMelted <- melt(resultWide,id="AllocSite")
-dataMelted <- filter(value>0)
+dataMelted <- filter(dataMelted, value>0)
 p<-ggplot(data=dataMelted, aes(x=AllocSite, y=value,color=variable)) +
   geom_line()+
   geom_point()
 ggplotly(p)
+
 
 
 
