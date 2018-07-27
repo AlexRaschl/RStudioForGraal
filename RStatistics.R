@@ -114,6 +114,23 @@ createFullStats <- function(){
 }
 
 
+createTypeOverview <- function(){
+  #Fetch the dataFrames
+  globalInfo <- data.frame(read.csv(globalPath,header = TRUE, sep = ';'))
+  allocSites <- data.frame(read.csv(allocPath,header = TRUE, sep = ';'))
+  opDistrib <- data.frame(read.csv(opDistrPath,header = TRUE, sep = ';'))
+  typeUsage<- data.frame(read.csv(typeUsagePath, header = TRUE, sep = ';', stringsAsFactors = FALSE))
+  sizesNCaps <- data.frame(read.csv(sizesNCapsPath, header = TRUE, sep=';'))
+  
+  allocSitesAndTypes <- merge(allocSites, typeUsage)
+  return(allocSitesAndTypes)
+}
+
+createCSTROprate <- function(resultWide){
+  opRate<- data.frame(resultWide$AllocSite,resultWide$Size,resultWide$Occurrences.CSTR_STD, resultWide$OpRate.CSTR_STD, resultWide$Occurrences.CSTR_CAP , resultWide$OpRate.CSTR_CAP, resultWide$Occurrences.CSTR_COLL, resultWide$OpRate.CSTR_COLL)
+  colnames(opRate) <- c("AllocSite", "Size", "CSTR_STD", "OpRate_STD", "CSTR_CAP", "OpRate_CAP","CSTR_COLL", "OpRate_COLL")
+  return(opRate)
+}
 
 createMergableStat <- function(benchPath, suite){
   path = paste(benchPath, suite, namePrefix, sep="")
@@ -152,6 +169,8 @@ mergeAllSuites <-function(){
  return(result)
 }
 
+full <- createFullStats()
+typeDistr <- createTypeOverview()
 
 result <- mergeAllSuites()
 
@@ -159,6 +178,8 @@ result %<>% dplyr::rename(AllocSite=Allocation.Sites)
 
 resultWide <-reshape(result,idvar = c("AllocSite","Size","CAPACITY","Global_LF"),timevar = "Operation", direction="wide")
 resultWide[is.na(resultWide)] <- 0
+
+opRate <- createCSTROprate(resultWide)
 
 
 
@@ -169,13 +190,13 @@ library(caret)
 
 
 # e.g. compute clusters
-kmeans(resultWide[2:27],2,nstart=20)
+#kmeans(resultWide[2:27],2,nstart=20)
 
 
 
 
 # e.g. interactive plot of add
-p<-ggplot(data=resultWide, aes(x=AllocSite, y=Occurrences.ADD_OBJ)) +
+p<-ggplot(data=resultWide, aes(x=AllocSite, y=Occurrences.REMOVE_OBJ)) +
   geom_line()+
   geom_point()
 ggplotly(p)
