@@ -25,12 +25,12 @@ prepareEnv()
 #General Filepath settings
 rm(list=ls())
 
-#mainPath <- "/home/urzidil/Programming/CSV/"
-mainPath <- "./CSVData/"
+mainPath <- "/home/urzidil/Programming/CSV/AggregatedClone/"
+#mainPath <- "./CSVData/"
 
-subPath <- "Aggregated/Dacapo/"
+subPath <- "Dacapo/"
 benchPath = paste(mainPath, subPath, sep = "")
-folderPath <- "lusearch/"
+folderPath <- "avrora/"
 namePrefix <- "HotSpotGraalRuntime"
 
 globalSuffix <- "_GLOBAL.csv"
@@ -158,6 +158,7 @@ createMergeOf <- function(data1, data2){
 
 mergeAllSuites <-function(){
   suites <- c("avrora/", "batik/", "fop/", "h2/", "jython/", "luindex/", "lusearch/", "pmd/", "sunflow/", "xalan/")
+  #suites <- c("avrora/", "batik/")
   result = createMergableStat(benchPath, suites[1])
   
   for(i in 2:10){
@@ -181,7 +182,19 @@ resultWide[is.na(resultWide)] <- 0
 
 opRate <- createCSTROprate(resultWide)
 
+opRate <- mutate(opRate, instances = opRate$CSTR_STD + opRate$CSTR_CAP + opRate$CSTR_COLL)
+opRate <- mutate(opRate, elemsPerInstance = opRate$Size/opRate$instances)
 
+drops <- c("CSTR_STD","OpRate_STD", "CSTR_CAP", "OpRate_CAP", "CSTR_COLL", "OpRate_COLL")
+opRate <- opRate[ , !(names(opRate) %in% drops)]
+opRate <- opRate[!(opRate$instances==0), ]
+
+pOpRate <- ggplot(data=opRate, aes(x=AllocSite, y = elemsPerInstance)) + geom_line() + geom_point() + geom_hline(yintercept = 8, color = c("RED")) + scale_y_continuous(breaks=c(0,4,8,10,20,40,60,70))+
+  theme(
+  axis.text.x=element_blank(),
+  axis.ticks.x=element_blank()
+  )
+ggplotly(pOpRate)
 
 # find important features https://machinelearningmastery.com/feature-selection-with-the-caret-r-package/
 library(caret)
